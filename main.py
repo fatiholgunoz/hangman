@@ -17,9 +17,12 @@ for chars in range(letter_count):
 
 #Compare user guess with letters, reveal found letters in disp.
 #Repeat until no hidden letters left
-  
 hidden_letters = letter_count
+
+#Player can fail six times before losing the game
 lives = 6
+
+#Main algorithm of the game, compares guess w/ each letter in the word
 
 while hidden_letters > 0 and lives > 0:
   guess = (input("Guess a letter: ")).lower()
@@ -34,6 +37,8 @@ while hidden_letters > 0 and lives > 0:
   if guess not in chosen_word:
     print(f"The letter '{guess}' is not in the word. ")
     lives = lives - 1  
+
+#This chunk displays the current state of the word, and lives left
     
   print(f"{' '.join(display)}")
   print(f"\n{lives} lives left.")
